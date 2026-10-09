@@ -141,9 +141,9 @@
 
   /* Paper sections */
   .paper{background:var(--paper)}
-  .families{display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:15.5px;line-height:1.45}
-  .families h4{font-weight:500;font-size:17px;letter-spacing:.05em;margin-bottom:2px}
-  .families small{font-size:13px;color:#555}
+  .families{display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:clamp(11px,3.3vw,15.5px);line-height:1.5;white-space:nowrap;margin:0 -16px;position:relative;z-index:1}
+  .families h4{font-weight:500;font-size:1.12em;letter-spacing:.05em;margin-bottom:2px}
+  .families small{font-size:.85em;color:#555}
   .announce{margin:38px 0 18px;font-size:17px;letter-spacing:.02em}
   .person .script{font-size:clamp(27px,8.6vw,52px);white-space:nowrap}
   .person p{font-size:18px;margin-top:2px}
@@ -282,7 +282,7 @@
   @media (min-width: 640px){
     main{max-width:760px}
     section{padding:88px 56px}
-    .families{font-size:16.5px}
+    .families{font-size:16.5px;margin:0}
     .album{gap:10px}
   }
 
@@ -354,8 +354,6 @@
   /* ================= ĐIỆN THOẠI NHỎ ================= */
   @media (max-width: 380px){
     section{padding:60px 18px}
-    .families{font-size:13.5px;gap:8px}
-    .families h4{font-size:15px}
     .ceremony{font-size:14px}
     .addr,.venue-label{font-size:15px}
     .cd{width:62px}
