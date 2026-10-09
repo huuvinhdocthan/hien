@@ -209,20 +209,6 @@
   .event h3{font-size:20px;letter-spacing:.12em;font-weight:600;margin:6px 0 4px;text-transform:uppercase}
   .event p{font-size:16px;color:#4a5a60}
 
-  /* Album */
-  .album{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-  .album .ph{aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--sky-soft);position:relative;cursor:zoom-in}
-  .album .ph:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
-  .album img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
-  .album .ph:hover img{transform:scale(1.06)}
-  .album .ph.empty{cursor:default;display:grid;place-items:center;color:#8cc3db;
-    background:repeating-linear-gradient(45deg,#eef8fb 0 10px,#e4f3f8 10px 20px)}
-  .album .ph.empty svg{width:42%;height:42%;opacity:.8}
-  .album-note{margin-top:16px;font-size:15px;font-style:italic;color:#5a7783}
-  #lightbox{position:fixed;inset:0;z-index:60;background:rgba(10,30,40,.92);display:none;place-items:center;padding:20px}
-  #lightbox.show{display:grid;animation:fade .3s}
-  #lightbox img{max-width:100%;max-height:88vh;border-radius:6px}
-  #lightbox button{position:absolute;top:14px;right:16px;background:none;border:0;color:#fff;font-size:34px;cursor:pointer}
   @keyframes fade{from{opacity:0}}
 
   /* Forms */
@@ -283,7 +269,6 @@
     main{max-width:760px}
     section{padding:88px 56px}
     .families{font-size:16.5px;margin:0}
-    .album{gap:10px}
   }
 
   /* ================= MÁY TÍNH ================= */
@@ -316,7 +301,6 @@
     .families{font-size:17px;max-width:520px;margin:0 auto}
     .person .script{font-size:clamp(38px,3.1vw,48px)}
     .spread > section{padding:96px 48px}
-    .album .ph.empty:nth-child(n+6){display:none}
     .guest-name{font-size:42px}
 
     /* Tiêu đề mục */
@@ -338,7 +322,6 @@
     .event{padding:30px 28px}
     .event .t{font-size:56px}
 
-    .album{grid-template-columns:repeat(4,1fr);gap:14px;max-width:1000px;margin:0 auto}
 
     .wish-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:960px;margin:0 auto;align-items:start}
     .wish-wrap .form{max-width:none;width:100%;margin:0;background:#fff;padding:28px;border-radius:18px;box-shadow:0 10px 30px -18px rgba(23,105,171,.5)}
@@ -440,13 +423,11 @@
 </div>
 
 <div id="petals" aria-hidden="true"></div>
-<div id="lightbox" role="dialog" aria-label="Xem ảnh"><button aria-label="Đóng">×</button><img alt=""></div>
 <div id="toast"></div>
 <nav id="dock" aria-label="Điều hướng nhanh">
   <a href="#hero" aria-label="Trang đầu"><svg><use href="#i-heart"/></svg></a>
   <a href="#story" aria-label="Chuyện tình yêu"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-6 13.5c-2.5-1.8-5-3.3-5-5.5C7 8.6 8.1 7.5 9.4 7.5c1.1 0 2 .7 2.6 1.5.6-.8 1.5-1.5 2.6-1.5C15.9 7.5 17 8.6 17 10c0 2.2-2.5 3.7-5 5.5z"/></svg></a>
   <a href="#info" aria-label="Thông tin hôn lễ"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></a>
-  <a href="#album" aria-label="Album ảnh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/></svg></a>
   <a href="#wish" aria-label="Lời chúc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg></a>
 </nav>
 <audio id="bgm" src="music.mp3" loop preload="auto"></audio>
@@ -613,19 +594,8 @@
     </div>
   </section>
 
-  <!-- ALBUM -->
-  <section class="sky-2" id="album">
-    <div class="sec-head rv">
-      <span class="script">Our Moments</span>
-      <h2>Album ảnh cưới</h2>
-      <div class="orn"><svg><use href="#i-heart"/></svg></div>
-    </div>
-    <div class="album rv" id="albumGrid"></div>
-    <p class="album-note rv" id="albumNote"></p>
-  </section>
-
   <!-- LỜI CHÚC -->
-  <section class="paper" id="wish">
+  <section class="sky-2" id="wish">
     <div class="sec-head rv">
       <span class="script">Best Wishes</span>
       <h2>Gửi lời chúc</h2>
@@ -667,9 +637,6 @@ const CONFIG = {
     { time: '10:00', title: 'Lễ Vu Quy', text: 'Chủ Nhật, 03/01/2027 · Tại tư gia nhà gái' },
     { time: '',      title: 'Tiệc chung vui', text: 'Chủ Nhật, 03/01/2027 · Tại tư gia nhà gái' },
   ],
-
-  // Album: bỏ ảnh vào thư mục "images" rồi ghi tên file, ví dụ ['images/1.jpg','images/2.jpg']
-  photos: [],
 
   // Ghi lời chúc vào Google Sheets: dán URL Web App của Google Apps Script (xem file google-apps-script.gs)
   sheetEndpoint: '',
@@ -713,26 +680,6 @@ document.getElementById('eventList').innerHTML = CONFIG.events.map((e, i) => `
     <div class="t">${esc(e.time || '--:--')}</div>
     <h3>${esc(e.title)}</h3><p>${esc(e.text)}</p><p style="font-size:14px;margin-top:4px">${esc(CONFIG.address)}</p>
   </div>`).join('');
-
-// Album
-(function () {
-  const grid = document.getElementById('albumGrid');
-  const note = document.getElementById('albumNote');
-  if (CONFIG.photos.length) {
-    grid.innerHTML = CONFIG.photos.map(src => `<div class="ph"><img loading="lazy" src="${esc(src)}" alt="Ảnh cưới Diệu Hiền & Quốc Anh"></div>`).join('');
-    note.textContent = 'Chạm vào ảnh để xem lớn';
-    const lb = document.getElementById('lightbox');
-    grid.addEventListener('click', e => {
-      const img = e.target.closest('img'); if (!img) return;
-      lb.querySelector('img').src = img.src; lb.classList.add('show');
-    });
-    lb.addEventListener('click', () => lb.classList.remove('show'));
-  } else {
-    grid.innerHTML = Array.from({ length: 6 }, (_, i) =>
-      `<div class="ph empty"><svg><use href="#${i % 2 ? 'i-sprig' : 'i-flower'}"/></svg></div>`).join('');
-    note.textContent = 'Những khoảnh khắc đẹp nhất sẽ sớm được cập nhật tại đây ♥';
-  }
-})();
 
 function toast(msg) {
   const t = document.getElementById('toast');
