@@ -113,7 +113,7 @@
   .std-title{font-family:var(--serif);font-size:22px;letter-spacing:.06em;font-weight:500}
   .std-date{font-size:24px;font-weight:500;display:inline-block;padding-bottom:6px;border-bottom:1px solid #333;margin-top:2px}
   .std-row{display:flex;align-items:center;justify-content:center;gap:6px;margin:38px 0 34px}
-  .std-row .script{color:#222;font-size:clamp(34px,9.5vw,46px);flex:1}
+  .std-row .script{color:#222;font-size:clamp(24px,7.6vw,46px);flex:1;white-space:nowrap}
   .bouquet{width:72px;flex:none;color:#222}
   .bouquet path{stroke-dasharray:600;stroke-dashoffset:600}
   .in .bouquet path{animation:draw 3s ease forwards}
@@ -145,7 +145,7 @@
   .families h4{font-weight:500;font-size:17px;letter-spacing:.05em;margin-bottom:2px}
   .families small{font-size:13px;color:#555}
   .announce{margin:38px 0 18px;font-size:17px;letter-spacing:.02em}
-  .person .script{font-size:clamp(38px,10.5vw,52px)}
+  .person .script{font-size:clamp(27px,8.6vw,52px);white-space:nowrap}
   .person p{font-size:18px;margin-top:2px}
   .amp{font-size:40px;margin:14px 0;font-family:var(--serif)}
   .ceremony{margin-top:42px;font-size:16px;line-height:1.55;letter-spacing:.04em;text-transform:uppercase}
@@ -276,6 +276,95 @@
   #music.playing svg{animation:spin 4s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
 
+  .page-r{border-top:1px solid #e3ecef}
+
+  /* ================= MÁY TÍNH BẢNG ================= */
+  @media (min-width: 640px){
+    main{max-width:760px}
+    section{padding:88px 56px}
+    .families{font-size:16.5px}
+    .album{gap:10px}
+  }
+
+  /* ================= MÁY TÍNH ================= */
+  @media (min-width: 1000px){
+    body{background:#dfe7e8 radial-gradient(circle at 20% 0%, #eef5f6, transparent 60%)}
+    main{max-width:1200px;margin:0 auto}
+    section{padding:110px 72px}
+
+    /* Hero: tên nằm trên một hàng */
+    .hero .cover-date{top:64px;right:84px;font-size:32px}
+    .hero .names{display:flex;align-items:center;gap:36px}
+    .hero .names .script{font-size:clamp(84px,7.5vw,118px)}
+    .hero .heart{width:56px;height:56px}
+    .tagline{font-size:24px;max-width:none;margin-top:34px}
+
+    /* Hai trang mở ra cạnh nhau như thiệp giấy */
+    .spread{display:grid;grid-template-columns:1fr 1fr}
+    .spread > section{display:flex;flex-direction:column;justify-content:center}
+    .page-r{border-top:0;border-left:1px solid #dbe8ec}
+    .std-title{font-size:26px}
+    .std-date{font-size:28px}
+    .std-row .script{font-size:clamp(40px,3.6vw,52px)}
+    .bouquet{width:92px}
+    .invite-line{font-size:22px;max-width:480px;margin:0 auto;width:100%}
+    .cal{max-width:420px}
+    .cal h3{font-size:28px}
+    .cal-grid{font-size:18px;row-gap:18px}
+    .cd{width:86px}
+    .cd b{font-size:38px}
+    .families{font-size:17px;max-width:520px;margin:0 auto}
+    .person .script{font-size:clamp(38px,3.1vw,48px)}
+    .spread > section{padding:96px 48px}
+    .album .ph.empty:nth-child(n+6){display:none}
+    .guest-name{font-size:42px}
+
+    /* Tiêu đề mục */
+    .sec-head{margin-bottom:56px}
+    .sec-head .script{font-size:76px}
+    .sec-head h2{font-size:17px}
+
+    /* Chuyện tình yêu: dòng thời gian so le hai bên */
+    .story{max-width:900px}
+    .story::before{left:50%}
+    .chap{width:50%;padding:0 64px 0 0;text-align:right;margin-bottom:48px}
+    .chap .ico{left:auto;right:-23.5px}
+    .chap:nth-child(even){margin-left:50%;padding:0 0 0 64px;text-align:left}
+    .chap:nth-child(even) .ico{left:-23.5px;right:auto}
+    .chap h3{font-size:42px}
+    .chap p{font-size:19px}
+
+    .events{grid-template-columns:1fr 1fr;max-width:860px;gap:24px}
+    .event{padding:30px 28px}
+    .event .t{font-size:56px}
+
+    .album{grid-template-columns:repeat(4,1fr);gap:14px;max-width:1000px;margin:0 auto}
+
+    .wish-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:960px;margin:0 auto;align-items:start}
+    .wish-wrap .form{max-width:none;width:100%;margin:0;background:#fff;padding:28px;border-radius:18px;box-shadow:0 10px 30px -18px rgba(23,105,171,.5)}
+    .wishes{margin:0;max-height:440px;max-width:none;width:100%;align-content:start}
+    .wishes:empty{display:grid;place-items:center;align-content:center;min-height:320px;border:1px dashed #c5dfe9;border-radius:18px}
+
+    footer{padding:56px 20px 100px;font-size:13px}
+    footer .script{font-size:56px}
+
+    .card-cover{width:460px}
+  }
+
+  /* ================= ĐIỆN THOẠI NHỎ ================= */
+  @media (max-width: 380px){
+    section{padding:60px 18px}
+    .families{font-size:13.5px;gap:8px}
+    .families h4{font-size:15px}
+    .ceremony{font-size:14px}
+    .addr,.venue-label{font-size:15px}
+    .cd{width:62px}
+    .cd b{font-size:26px}
+    .countdown{gap:8px}
+    .when{gap:8px}
+    .when .side{font-size:15px}
+  }
+
   @media (prefers-reduced-motion: reduce){
     *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
     #petals{display:none}
@@ -380,6 +469,7 @@
     <div class="scroll-hint">Cuộn xuống</div>
   </section>
 
+  <div class="spread">
   <!-- SAVE THE DATE -->
   <section class="sky-2">
     <div class="rv">
@@ -417,7 +507,9 @@
       <div class="cd"><b id="cdS">0</b><small>Giây</small></div>
     </div>
   </section>
+  </div>
 
+  <div class="spread">
   <!-- THIỆP TRONG: TRÁI -->
   <section class="paper">
     <div class="deco" style="width:90px;height:90px;top:18px;right:-14px"><svg><use href="#i-flower"/></svg></div>
@@ -459,7 +551,7 @@
   </section>
 
   <!-- THIỆP TRONG: PHẢI -->
-  <section class="paper" style="border-top:1px solid #e3ecef">
+  <section class="paper page-r">
     <div class="deco" style="width:80px;height:80px;top:30px;left:-10px"><svg><use href="#i-flower"/></svg></div>
     <div class="deco" style="width:40px;height:100px;right:16px;top:30px;transform:rotate(24deg)"><svg><use href="#i-sprig"/></svg></div>
     <div class="deco" style="width:70px;height:70px;right:4px;bottom:160px"><svg><use href="#i-flower"/></svg></div>
@@ -493,6 +585,7 @@
       </a>
     </div>
   </section>
+  </div>
 
   <!-- CHUYỆN TÌNH YÊU -->
   <section class="sky" id="story">
@@ -540,12 +633,14 @@
       <h2>Gửi lời chúc</h2>
       <div class="orn"><svg><use href="#i-heart"/></svg></div>
     </div>
+    <div class="wish-wrap">
     <form class="form rv" id="wishForm">
       <div><label for="wName">Tên của bạn</label><input id="wName" name="name" required maxlength="80" placeholder="Nhập tên của bạn"></div>
       <div><label for="wMsg">Lời chúc</label><textarea id="wMsg" name="message" required maxlength="500" placeholder="Gửi lời chúc đến cô dâu chú rể…"></textarea></div>
       <button class="btn solid" type="submit">Gửi lời chúc ♥</button>
     </form>
     <div class="wishes" id="wishList"></div>
+    </div>
   </section>
 
   <footer>
