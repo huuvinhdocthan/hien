@@ -684,6 +684,9 @@ if (guest) {
   document.getElementById('stdGuest').textContent = guest;
   document.getElementById('cardGuest').textContent = guest;
   document.title = 'Thiệp mời ' + guest + ' · Diệu Hiền & Quốc Anh';
+} else {
+  document.getElementById('stdGuest').textContent = 'Bạn + ❤️';
+  document.getElementById('cardGuest').textContent = 'Bạn + ❤️';
 }
 if (CONFIG.partyTime) document.getElementById('partyTime').textContent = CONFIG.partyTime;
 
