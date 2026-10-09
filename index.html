@@ -181,6 +181,77 @@
   footer{padding:40px 20px 90px;text-align:center;font-family:var(--sans);font-size:12px;color:#5a7783;background:var(--sky)}
   footer .script{font-size:40px;display:block;margin-bottom:8px}
 
+  /* Section heading */
+  .sec-head{margin-bottom:36px}
+  .sec-head .script{font-size:clamp(42px,12vw,56px);display:block}
+  .sec-head h2{font-family:var(--serif);font-weight:500;font-size:15px;letter-spacing:.32em;text-transform:uppercase;color:#3b5d6b;margin-top:2px}
+  .sec-head .orn{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px;color:var(--blue)}
+  .sec-head .orn::before,.sec-head .orn::after{content:"";width:56px;height:1px;background:currentColor;opacity:.5}
+  .sec-head .orn svg{width:14px;height:14px}
+  .tagline{margin-top:26px;font-size:19px;font-style:italic;color:#2f4f5c;max-width:320px}
+
+  /* Love story */
+  .story{position:relative;max-width:420px;margin:0 auto;text-align:left}
+  .story::before{content:"";position:absolute;left:23px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--blue),transparent);opacity:.45}
+  .chap{position:relative;padding-left:66px;margin-bottom:34px}
+  .chap .ico{position:absolute;left:0;top:0;width:47px;height:47px;border-radius:50%;background:#fff;
+    border:1px solid #bcdbe8;display:grid;place-items:center;color:var(--blue)}
+  .chap .ico svg{width:24px;height:24px}
+  .chap time{font-family:var(--sans);font-size:12px;letter-spacing:.18em;color:var(--blue);text-transform:uppercase}
+  .chap h3{font-family:var(--script);font-weight:400;font-size:34px;color:var(--ink);line-height:1.1;margin:2px 0 4px}
+  .chap p{font-size:17px;line-height:1.55;color:#3a4a50}
+
+  /* Schedule */
+  .events{display:grid;gap:16px;max-width:400px;margin:0 auto}
+  .event{background:#fff;border-radius:16px;padding:22px 20px;box-shadow:0 10px 30px -18px rgba(23,105,171,.5);position:relative;overflow:hidden}
+  .event::after{content:"";position:absolute;inset:6px;border:1px solid #d4e9f1;border-radius:12px;pointer-events:none}
+  .event .t{font-family:var(--serif);font-size:44px;font-weight:500;color:var(--blue);line-height:1}
+  .event h3{font-size:20px;letter-spacing:.12em;font-weight:600;margin:6px 0 4px;text-transform:uppercase}
+  .event p{font-size:16px;color:#4a5a60}
+
+  /* Album */
+  .album{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .album .ph{aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:var(--sky-soft);position:relative;cursor:zoom-in}
+  .album .ph:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  .album img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
+  .album .ph:hover img{transform:scale(1.06)}
+  .album .ph.empty{cursor:default;display:grid;place-items:center;color:#8cc3db;
+    background:repeating-linear-gradient(45deg,#eef8fb 0 10px,#e4f3f8 10px 20px)}
+  .album .ph.empty svg{width:42%;height:42%;opacity:.8}
+  .album-note{margin-top:16px;font-size:15px;font-style:italic;color:#5a7783}
+  #lightbox{position:fixed;inset:0;z-index:60;background:rgba(10,30,40,.92);display:none;place-items:center;padding:20px}
+  #lightbox.show{display:grid;animation:fade .3s}
+  #lightbox img{max-width:100%;max-height:88vh;border-radius:6px}
+  #lightbox button{position:absolute;top:14px;right:16px;background:none;border:0;color:#fff;font-size:34px;cursor:pointer}
+  @keyframes fade{from{opacity:0}}
+
+  /* Forms */
+  .form{max-width:400px;margin:0 auto;text-align:left;display:grid;gap:14px}
+  .form label{font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#3b5d6b;display:block;margin-bottom:6px}
+  .form input,.form select,.form textarea{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:1px solid #c5dfe9;border-radius:10px;background:#fff;color:var(--ink);outline:none;transition:border-color .2s, box-shadow .2s}
+  .form input:focus,.form select:focus,.form textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,105,171,.12)}
+  .form textarea{min-height:96px;resize:vertical}
+  .form .btn{justify-content:center;border:0;cursor:pointer;font-size:14px;padding:14px}
+
+  /* Wishes */
+  .wishes{max-width:420px;margin:28px auto 0;max-height:360px;overflow-y:auto;display:grid;gap:10px;text-align:left;padding:4px}
+  .wish{background:#fff;border-radius:14px;padding:14px 16px;box-shadow:0 6px 18px -12px rgba(23,105,171,.5);animation:fade .6s}
+  .wish b{font-family:var(--sans);font-size:14px;font-weight:500;color:var(--blue)}
+  .wish p{font-size:17px;line-height:1.45;margin-top:2px}
+  .wishes:empty::before{content:"Hãy là người đầu tiên gửi lời chúc ♥";display:block;text-align:center;font-style:italic;color:#5a7783}
+
+  /* Dock */
+  #dock{position:fixed;left:50%;bottom:16px;transform:translate(-50%,120px);z-index:44;display:flex;gap:4px;
+    background:rgba(255,255,255,.85);backdrop-filter:blur(10px);padding:6px;border-radius:999px;
+    box-shadow:0 10px 30px -10px rgba(23,80,120,.45);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+  #dock.show{transform:translate(-50%,0)}
+  #dock a{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:var(--blue);transition:.2s}
+  #dock a:hover,#dock a.active{background:var(--blue);color:#fff}
+  #dock svg{width:20px;height:20px}
+  #toast{position:fixed;left:50%;top:20px;transform:translate(-50%,-80px);z-index:70;background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:14px;padding:10px 18px;border-radius:999px;transition:transform .4s}
+  #toast.show{transform:translate(-50%,0)}
+
   /* Reveal */
   .rv{opacity:0;transform:translateY(34px);transition:opacity 1s ease, transform 1s cubic-bezier(.2,.7,.2,1)}
   .rv.in{opacity:1;transform:none}
@@ -198,7 +269,7 @@
   @keyframes sway{from{transform:translateX(-14px) rotate(-20deg)}to{transform:translateX(14px) rotate(25deg)}}
 
   /* Music */
-  #music{position:fixed;right:16px;bottom:16px;z-index:45;width:48px;height:48px;border-radius:50%;
+  #music{position:fixed;right:14px;top:14px;z-index:45;width:48px;height:48px;border-radius:50%;
     border:0;background:var(--blue);color:#fff;cursor:pointer;display:none;place-items:center;
     box-shadow:0 8px 20px rgba(23,105,171,.4)}
   #music.show{display:grid}
@@ -282,6 +353,15 @@
 </div>
 
 <div id="petals" aria-hidden="true"></div>
+<div id="lightbox" role="dialog" aria-label="Xem ảnh"><button aria-label="Đóng">×</button><img alt=""></div>
+<div id="toast"></div>
+<nav id="dock" aria-label="Điều hướng nhanh">
+  <a href="#hero" aria-label="Trang đầu"><svg><use href="#i-heart"/></svg></a>
+  <a href="#story" aria-label="Chuyện tình yêu"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-6 13.5c-2.5-1.8-5-3.3-5-5.5C7 8.6 8.1 7.5 9.4 7.5c1.1 0 2 .7 2.6 1.5.6-.8 1.5-1.5 2.6-1.5C15.9 7.5 17 8.6 17 10c0 2.2-2.5 3.7-5 5.5z"/></svg></a>
+  <a href="#info" aria-label="Thông tin hôn lễ"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></a>
+  <a href="#album" aria-label="Album ảnh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/></svg></a>
+  <a href="#wish" aria-label="Lời chúc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg></a>
+</nav>
 <audio id="bgm" src="music.mp3" loop preload="auto"></audio>
 <button id="music" aria-label="Bật/tắt nhạc">
   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
@@ -296,6 +376,7 @@
       <svg class="heart beat rv d2"><use href="#i-heart"/></svg>
       <div class="script write" style="transition-delay:.9s">Quốc Anh</div>
     </div>
+    <p class="tagline rv d3">Hạnh phúc là khi được nắm tay nhau đi hết cuộc đời</p>
     <div class="scroll-hint">Cuộn xuống</div>
   </section>
 
@@ -413,6 +494,60 @@
     </div>
   </section>
 
+  <!-- CHUYỆN TÌNH YÊU -->
+  <section class="sky" id="story">
+    <div class="deco" style="width:90px;height:90px;top:24px;left:-20px"><svg><use href="#i-flower"/></svg></div>
+    <div class="sec-head rv">
+      <span class="script">Our Love Story</span>
+      <h2>Chuyện tình yêu</h2>
+      <div class="orn"><svg><use href="#i-heart"/></svg></div>
+    </div>
+    <div class="story" id="storyList"></div>
+  </section>
+
+  <!-- THÔNG TIN HÔN LỄ -->
+  <section class="paper" id="info">
+    <div class="deco" style="width:44px;height:110px;right:14px;top:26px;transform:rotate(20deg)"><svg><use href="#i-sprig"/></svg></div>
+    <div class="sec-head rv">
+      <span class="script">Wedding Day</span>
+      <h2>Thông tin hôn lễ</h2>
+      <div class="orn"><svg><use href="#i-heart"/></svg></div>
+    </div>
+    <div class="events" id="eventList"></div>
+    <div class="btns rv">
+      <a class="btn solid" id="mapBtn2" target="_blank" rel="noopener" href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+        Xem bản đồ
+      </a>
+    </div>
+  </section>
+
+  <!-- ALBUM -->
+  <section class="sky-2" id="album">
+    <div class="sec-head rv">
+      <span class="script">Our Moments</span>
+      <h2>Album ảnh cưới</h2>
+      <div class="orn"><svg><use href="#i-heart"/></svg></div>
+    </div>
+    <div class="album rv" id="albumGrid"></div>
+    <p class="album-note rv" id="albumNote"></p>
+  </section>
+
+  <!-- LỜI CHÚC -->
+  <section class="paper" id="wish">
+    <div class="sec-head rv">
+      <span class="script">Best Wishes</span>
+      <h2>Gửi lời chúc</h2>
+      <div class="orn"><svg><use href="#i-heart"/></svg></div>
+    </div>
+    <form class="form rv" id="wishForm">
+      <div><label for="wName">Tên của bạn</label><input id="wName" name="name" required maxlength="80" placeholder="Nhập tên của bạn"></div>
+      <div><label for="wMsg">Lời chúc</label><textarea id="wMsg" name="message" required maxlength="500" placeholder="Gửi lời chúc đến cô dâu chú rể…"></textarea></div>
+      <button class="btn solid" type="submit">Gửi lời chúc ♥</button>
+    </form>
+    <div class="wishes" id="wishList"></div>
+  </section>
+
   <footer>
     <span class="script rv">Thank you</span>
     Made with love · Diệu Hiền &amp; Quốc Anh
@@ -424,6 +559,27 @@
 const CONFIG = {
   eventISO: '2027-01-03T10:00:00+07:00', // giờ hôn lễ (đếm ngược)
   partyTime: '',                          // giờ tiệc, ví dụ '11 GIỜ 00' — để trống sẽ hiện ".... GIỜ ...."
+  address: '325 Ấp Xoài Đôi, Xã Rạch Kiến, Tỉnh Tây Ninh',
+
+  // Chuyện tình yêu — sửa nội dung theo câu chuyện thật của cô dâu chú rể
+  story: [
+    { icon: 'meet',   time: 'Ngày đầu tiên',  title: 'Lần đầu gặp gỡ', text: 'Một ngày bình thường bỗng trở nên đặc biệt, khi hai người xa lạ vô tình gặp nhau và mỉm cười.' },
+    { icon: 'chat',   time: 'Những ngày sau', title: 'Thương nhau',    text: 'Từ những tin nhắn chúc ngủ ngon đến những buổi hẹn hò giản dị, hai trái tim cứ thế xích lại gần nhau.' },
+    { icon: 'ring',   time: 'Một ngày đẹp trời', title: 'Lời cầu hôn', text: 'Anh ngỏ lời, em gật đầu — và chúng mình quyết định cùng nhau viết tiếp câu chuyện.' },
+    { icon: 'heart',  time: '03 · 01 · 2027', title: 'Về chung một nhà', text: 'Ngày chúng mình chính thức về chung một nhà, rất mong có bạn cùng chung vui.' },
+  ],
+
+  // Lịch trình ngày cưới
+  events: [
+    { time: '10:00', title: 'Lễ Vu Quy', text: 'Chủ Nhật, 03/01/2027 · Tại tư gia nhà gái' },
+    { time: '',      title: 'Tiệc chung vui', text: 'Chủ Nhật, 03/01/2027 · Tại tư gia nhà gái' },
+  ],
+
+  // Album: bỏ ảnh vào thư mục "images" rồi ghi tên file, ví dụ ['images/1.jpg','images/2.jpg']
+  photos: [],
+
+  // Ghi lời chúc vào Google Sheets: dán URL Web App của Google Apps Script (xem file google-apps-script.gs)
+  sheetEndpoint: '',
 };
 /* ======================================== */
 
@@ -437,6 +593,127 @@ if (guest) {
   document.title = 'Thiệp mời ' + guest + ' · Diệu Hiền & Quốc Anh';
 }
 if (CONFIG.partyTime) document.getElementById('partyTime').textContent = CONFIG.partyTime;
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(CONFIG.address);
+document.getElementById('mapBtn2').href = mapsUrl;
+
+// Chuyện tình yêu
+const ICONS = {
+  meet:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="8" cy="7" r="3"/><circle cx="16" cy="7" r="3"/><path d="M3 20c0-4 2.5-7 5-7s5 3 5 7M11 20c0-4 2.5-7 5-7s5 3 5 7"/></svg>',
+  chat:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M4 4h16v11H9l-5 4z"/><path d="M12 12.5c-2-1.5-4-2.6-4-4.4C8 7 9 6.3 10 6.3c.9 0 1.6.6 2 1.2.4-.6 1.1-1.2 2-1.2 1 0 2 .7 2 1.8 0 1.8-2 2.9-4 4.4z"/></svg>',
+  ring:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><circle cx="12" cy="15" r="6"/><path d="M9 6l3-3 3 3-3 3z"/></svg>',
+  heart: '<svg viewBox="0 0 32 30"><use href="#i-heart"/></svg>',
+};
+document.getElementById('storyList').innerHTML = CONFIG.story.map((c, i) => `
+  <div class="chap rv d${i % 3 + 1}">
+    <div class="ico">${ICONS[c.icon] || ICONS.heart}</div>
+    <time>${esc(c.time)}</time><h3>${esc(c.title)}</h3><p>${esc(c.text)}</p>
+  </div>`).join('');
+
+// Lịch trình
+document.getElementById('eventList').innerHTML = CONFIG.events.map((e, i) => `
+  <div class="event rv d${i + 1}">
+    <div class="t">${esc(e.time || '--:--')}</div>
+    <h3>${esc(e.title)}</h3><p>${esc(e.text)}</p><p style="font-size:14px;margin-top:4px">${esc(CONFIG.address)}</p>
+  </div>`).join('');
+
+// Album
+(function () {
+  const grid = document.getElementById('albumGrid');
+  const note = document.getElementById('albumNote');
+  if (CONFIG.photos.length) {
+    grid.innerHTML = CONFIG.photos.map(src => `<div class="ph"><img loading="lazy" src="${esc(src)}" alt="Ảnh cưới Diệu Hiền & Quốc Anh"></div>`).join('');
+    note.textContent = 'Chạm vào ảnh để xem lớn';
+    const lb = document.getElementById('lightbox');
+    grid.addEventListener('click', e => {
+      const img = e.target.closest('img'); if (!img) return;
+      lb.querySelector('img').src = img.src; lb.classList.add('show');
+    });
+    lb.addEventListener('click', () => lb.classList.remove('show'));
+  } else {
+    grid.innerHTML = Array.from({ length: 6 }, (_, i) =>
+      `<div class="ph empty"><svg><use href="#${i % 2 ? 'i-sprig' : 'i-flower'}"/></svg></div>`).join('');
+    note.textContent = 'Những khoảnh khắc đẹp nhất sẽ sớm được cập nhật tại đây ♥';
+  }
+})();
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+// Gửi dữ liệu lên Google Sheets (nếu có cấu hình), luôn lưu bản sao trên máy khách
+async function send(type, data) {
+  const row = { type, time: new Date().toISOString(), ...data };
+  try {
+    const key = 'dh-qa-' + type;
+    const list = JSON.parse(localStorage.getItem(key) || '[]'); list.push(row);
+    localStorage.setItem(key, JSON.stringify(list));
+  } catch (e) {}
+  if (!CONFIG.sheetEndpoint) return;
+  try {
+    await fetch(CONFIG.sheetEndpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(row) });
+  } catch (e) { console.warn('Không gửi được lên Google Sheets', e); }
+}
+
+// Lời chúc
+const wishList = document.getElementById('wishList');
+const wishForm = document.getElementById('wishForm');
+if (guest) document.getElementById('wName').value = guest;
+function addWish(w, top) {
+  const d = document.createElement('div');
+  d.className = 'wish';
+  d.innerHTML = `<b>${esc(w.name)}</b><p>${esc(w.message)}</p>`;
+  top ? wishList.prepend(d) : wishList.append(d);
+}
+(async function loadWishes() {
+  let list = [];
+  if (CONFIG.sheetEndpoint) {
+    try { list = await (await fetch(CONFIG.sheetEndpoint + '?type=wish')).json(); } catch (e) {}
+  }
+  if (!list.length) { try { list = JSON.parse(localStorage.getItem('dh-qa-wish') || '[]'); } catch (e) {} }
+  list.slice().reverse().forEach(w => addWish(w));
+})();
+wishForm.addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = new FormData(wishForm);
+  const w = { name: f.get('name').trim(), message: f.get('message').trim() };
+  if (!w.name || !w.message) return;
+  addWish(w, true);
+  wishForm.reset(); if (guest) document.getElementById('wName').value = guest;
+  toast('Cảm ơn lời chúc của bạn ♥');
+  burst(wishForm.parentElement);
+  await send('wish', w);
+});
+
+// Pháo tim khi gửi
+function burst(host) {
+  const r = host.getBoundingClientRect();
+  for (let i = 0; i < 18; i++) {
+    const h = document.createElement('div');
+    const a = Math.random() * Math.PI * 2, dist = 80 + Math.random() * 120;
+    h.style.cssText = `position:fixed;left:${r.left + r.width / 2}px;top:${Math.min(innerHeight - 80, r.top + r.height / 2)}px;width:18px;height:18px;color:${['#1769ab', '#9fd2ea', '#e78fb3'][i % 3]};z-index:70;pointer-events:none;transition:transform 1.1s cubic-bezier(.1,.7,.3,1),opacity 1.1s`;
+    h.innerHTML = '<svg width="18" height="18"><use href="#i-heart"/></svg>';
+    document.body.appendChild(h);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      h.style.transform = `translate(${Math.cos(a) * dist}px,${Math.sin(a) * dist}px) scale(${.6 + Math.random()})`;
+      h.style.opacity = 0;
+    }));
+    setTimeout(() => h.remove(), 1200);
+  }
+}
+
+// Thanh điều hướng nhanh
+const dock = document.getElementById('dock');
+const dockLinks = [...dock.querySelectorAll('a')];
+addEventListener('scroll', () => {
+  dock.classList.toggle('show', opened && scrollY > innerHeight * 0.6);
+  let cur = dockLinks[0];
+  dockLinks.forEach(a => { const s = document.querySelector(a.getAttribute('href')); if (s && s.getBoundingClientRect().top < innerHeight * 0.5) cur = a; });
+  dockLinks.forEach(a => a.classList.toggle('active', a === cur));
+}, { passive: true });
 
 // Lá monstera cắt laser trên bìa
 const LEAVES = [
