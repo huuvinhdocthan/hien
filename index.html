@@ -54,10 +54,34 @@
     transition:transform 1.4s cubic-bezier(.6,.05,.3,1);
   }
   #cover.open .card-cover{transform:scale(1.08)}
+  /* Ngày cưới: khung vòm viền trắng, số kiểu serif xanh */
   .cover-date{
-    position:absolute;top:7%;right:9%;
-    font-family:var(--sans);font-weight:300;font-size:clamp(20px,5.5vw,26px);
-    line-height:1.15;text-align:center;letter-spacing:.04em;color:#222;
+    position:absolute;top:6%;right:8%;
+    font-size:clamp(24px,6.6vw,30px);
+    display:flex;flex-direction:column;align-items:center;
+    min-width:2.5em;padding:.55em .4em .4em;
+    border:1px solid rgba(255,255,255,.95);border-radius:999px 999px .25em .25em;
+    background:linear-gradient(180deg, rgba(255,255,255,.38), rgba(255,255,255,.08));
+    box-shadow:0 10px 24px -14px rgba(20,60,90,.45);
+    text-align:center;color:var(--blue);
+  }
+  .cover-date::before{
+    content:"";position:absolute;inset:4px;pointer-events:none;
+    border:1px solid rgba(255,255,255,.6);border-radius:inherit;
+  }
+  .cover-date .dd,.cover-date .mm{
+    font-family:var(--serif);font-weight:500;font-size:1em;line-height:1;letter-spacing:.02em;font-variant-numeric:lining-nums;
+  }
+  .cover-date .mm{font-style:italic}
+  .cover-date .sep{
+    display:flex;align-items:center;gap:.18em;margin:.14em 0;color:var(--blue-2);
+  }
+  .cover-date .sep::before,.cover-date .sep::after{content:"";width:.42em;height:1px;background:currentColor;opacity:.7}
+  .cover-date .sep svg{width:.36em;height:.36em}
+  .cover-date .yy{
+    font-family:var(--sans);font-weight:400;font-size:.36em;letter-spacing:.32em;
+    margin-top:.6em;padding-top:.5em;border-top:1px solid rgba(23,105,171,.35);
+    padding-left:.32em;color:#2d4f60;
   }
   .cover-names{
     position:absolute;inset:0;display:flex;flex-direction:column;
@@ -278,7 +302,7 @@
     section{padding:110px 72px}
 
     /* Hero: tên nằm trên một hàng */
-    .hero .cover-date{top:64px;right:84px;font-size:32px}
+    .hero .cover-date{top:64px;right:84px;font-size:40px}
     .hero .names{display:flex;align-items:center;gap:36px}
     .hero .names .script{font-size:clamp(84px,7.5vw,118px)}
     .hero .heart{width:56px;height:56px}
@@ -407,7 +431,7 @@
   <div class="cover-wrap">
     <p class="cover-guest" id="coverGuest"></p>
     <div class="card-cover" id="cardCover">
-      <div class="cover-date">03<br>01<br>27</div>
+      <div class="cover-date"><span class="dd">03</span><span class="sep"><svg><use href="#i-heart"/></svg></span><span class="mm">01</span><span class="yy">2027</span></div>
       <div class="cover-names">
         <span class="script">Diệu Hiền</span>
         <svg class="heart beat"><use href="#i-heart"/></svg>
@@ -438,7 +462,7 @@
 <main>
   <!-- HERO -->
   <section class="sky hero" id="hero">
-    <div class="cover-date rv">03<br>01<br>27</div>
+    <div class="cover-date rv"><span class="dd">03</span><span class="sep"><svg><use href="#i-heart"/></svg></span><span class="mm">01</span><span class="yy">2027</span></div>
     <div class="names">
       <div class="script write">Diệu Hiền</div>
       <svg class="heart beat rv d2"><use href="#i-heart"/></svg>
@@ -805,6 +829,16 @@ bgm.addEventListener('canplay', () => musicBtn.classList.add('show'), { once: tr
 musicBtn.addEventListener('click', () => {
   if (bgm.paused) { bgm.play(); musicBtn.classList.add('playing'); }
   else { bgm.pause(); musicBtn.classList.remove('playing'); }
+});
+// Tạm dừng khi chuyển tab / thoát ra, phát lại khi quay về nếu trước đó đang phát
+let resumeOnReturn = false;
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    resumeOnReturn = !bgm.paused;
+    bgm.pause();
+  } else if (resumeOnReturn) {
+    bgm.play().catch(() => musicBtn.classList.remove('playing'));
+  }
 });
 
 // Lịch tháng 01/2027 (tuần bắt đầu Thứ 2)
